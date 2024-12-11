@@ -8,7 +8,7 @@ As a solution to this problem, the schema needed to passed to the spark while re
 we get the schema? Well, its quite easy in PySpark 
 
 
-```
+```python
 # read all the json files and get the schema  
 jsonDF = spark.read.json(list_of_files)
 jsonSchema = jsonDF.schema.json()
