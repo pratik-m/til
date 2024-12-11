@@ -17,5 +17,18 @@ $ UUID=$(cat  /proc/sys/kernel/random/uuid)
 echo $UUID
 ```
 
-In addition to `uuid`, unix system generates a `boot_id` which is generated only once, while `uuid` is generated
-everytime is read. Both of them are read only files.
+In addition to `uuid`, unix system generates a `boot_id` which is generated only once, while `uuid` is generated everytime is read. Both of them are read only files.
+# Using `uuidgen`
+The uuidgen program creates (and prints) a new universally unique identifier (UUID) using the libuuid(3) library. The new UUID can reasonably be considered unique among all UUIDs created on the local system, and among UUIDs created on other systems in the past and in the future. By default uuidgen would generate random-based UUID.
+
+```bash 
+❯ uuidgen
+00cc827b-eafc-4b52-878a-d3df3e025bef
+```
+
+# Using python
+```bash
+❯ python -c "import uuid; print(uuid.uuid1())"
+5a954f0e-b773-11ef-8602-dc4628cbb6af
+```
+
