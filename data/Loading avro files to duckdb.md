@@ -38,6 +38,8 @@ Given the challenges with DuckDB's direct Avro ingestion, I explored a Python-ba
 
 PyArrow provides an in-memory columnar data format optimized for analytical workloads. DuckDB has native support for PyArrow tables, enabling efficient data transfer. By converting the Avro data to a PyArrow table, I bypassed the limitations of DuckDB's direct Avro ingestion. I chose Parquet as an intermediary format, as it is a columnar storage format that DuckDB handles very efficiently.
 
+The avro files for each table were stored in a separated directory. The below script iterates each folder and reads the individual file. 
+
 ```python
 import fastavro
 import duckdb
@@ -46,7 +48,7 @@ import pyarrow as pa
 
 con = duckdb.connect("/tmp/test.db")
 
-root = Path("/home/pratik/Downloads/files")
+root = Path("~/Downloads/files")
 
 for table in root.iterdir():
     table_name = table.name
@@ -93,7 +95,7 @@ import pyarrow as pa
 
 con = duckdb.connect("/tmp/test.db")
 
-root = Path("/home/pratik/Downloads/files")
+root = Path("~/Downloads/files")
 
 for table in sorted(root.iterdir()):
     table_name = table.name
